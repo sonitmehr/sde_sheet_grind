@@ -12,7 +12,7 @@ int uniqueSubstrings(string s)
     for(int i= 0;i<n;i++){
       
 
-        if(m.find(s[i]) != m.end())l = max(m[s[i]] + 1,l);
+        if(m.find(s[i]) != m.end())l = max(m[s[i]] + 1,l); // This line is important to remember.
         m[s[i]] = i;
       
       maxi = max(maxi,i-l + 1);
