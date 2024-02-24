@@ -1,3 +1,10 @@
+// https://leetcode.com/problems/find-all-people-with-secret/?envType=daily-question&envId=2024-02-24
+// TC : O(MLogM - sorting + M*1 (ammortised for doing Union) + N*1 (for putting into answer array))
+// SC : O(M(currPoeople vector) + N(DSU))
+
+
+// M - number of meetings
+// N - Number of people
 class UnionFind {
     vector<int> root, rank;
 
@@ -41,7 +48,7 @@ public:
         };
 
       // Sort based on time
-        sort(meetings.begin(), meetings.end(), compare);
+        sort(meetings.begin(), meetings.end(), compare); // O(MLogM)
 
         UnionFind dsu(n);
         dsu.Union(0, firstPerson);
@@ -52,7 +59,7 @@ public:
 
           // Put all the DSU's with same parent in the same Graph
             while (i < meetings.size() && meetings[i][2] == ct) {
-                dsu.Union(meetings[i][0], meetings[i][1]);
+                dsu.Union(meetings[i][0], meetings[i][1]); // This is ammortised O(1)
 
                 currPeople.push_back(meetings[i][0]);
                 currPeople.push_back(meetings[i][1]);
