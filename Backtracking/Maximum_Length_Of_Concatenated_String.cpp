@@ -45,7 +45,7 @@ public:
 
         // newResult stores the first 26 characters of the new element.
         int newResult = uniqueVec[i] & ((1 << 26) - 1);
-        int newResultLen = uniqueVec[i] >> 26; // Messed up here. Take length from uniqueVec[i];
+        int newResultLen = uniqueVec[i] >> 26; // Messed up here. Take length from uniqueVec[i]; ⚠️⚠️⚠️⚠️
 
         // Check if any repetition after merging
         int mergedResult = (oldResult & newResult);
