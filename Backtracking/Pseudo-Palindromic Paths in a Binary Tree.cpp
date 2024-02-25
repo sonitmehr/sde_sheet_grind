@@ -16,7 +16,7 @@ public:
         if (root->left == NULL && root->right == NULL) {
           // The result stores frequency of each value (1 - 9). So we expect result to have either 0 or 1 set bits.
           // Hence we do n*n-1 operation as for 1 set bit it will always be 0
-            if ((newFrequency & (newFrequency - 1)) == 0) {
+            if ((newFrequency & (newFrequency - 1)) == 0) { // I used n & -n as that can either be 0 or n for checking 1 set bit ⚠️⚠️⚠️
                 ans++;
             }
         }
